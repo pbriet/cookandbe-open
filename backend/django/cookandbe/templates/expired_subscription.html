@@ -1,0 +1,39 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Votre abonnement est expiré
+{% endblock title %}
+
+{% block summary %}
+  Votre abonnement est expiré
+{% endblock summary %}
+
+{% block action1 %}
+  {% op_button /expired %}
+    Prolonger
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Votre abonnement est expiré</h1>
+    <p>
+      Votre abonnement <b>{{ subscription }}</b> arrive à son terme.<br/><br/>
+      Rendez-vous sur la page <a href="{% app_url /expired %}" target="_blank">Mon objectif</a>
+      pour le renouveler ou le modifier.
+    </p>
+    <h2>Votre avis nous est précieux</h2>
+    <p>
+      Vous n'avez pas été satisfait de notre service ? N'hésitez pas à nous le dire !<br/>
+      Cook&amp;Be s'améliore, jour après jour, grâce à vos retours.<br/>
+      Envoyez-nous un message à support@cookandbe.com !
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block no_last_word %}
+{% endblock no_last_word %}

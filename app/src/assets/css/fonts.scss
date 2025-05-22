@@ -1,0 +1,234 @@
+// Import fonts
+
+// http://blog.wax-o.com/2012/11/les-problemes-de-rendu-font-face-sous-chrome-et-firefox-utiliser-des-contours-postscript/
+// http://www.fontsquirrel.com/tools/webfont-generator
+// https://www.google.com/fonts
+
+@font-face {
+  $clairehand-file-path: "~@/assets/font/clairehand/clairehandlight-webfont";
+  font-family: "claire_handlight";
+  src: url("#{$clairehand-file-path}.eot");
+  src: url("#{$clairehand-file-path}.eot?#iefix") format("embedded-opentype"),
+    url("#{$clairehand-file-path}.woff2") format("woff2"), url("#{$clairehand-file-path}.woff") format("woff"),
+    url("#{$clairehand-file-path}.ttf") format("truetype"),
+    url("#{$clairehand-file-path}.svg#claire_handlight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  $quicksand-file-path: "~@/assets/font/quicksand/quicksand_book-webfont";
+  font-family: "quicksandbook";
+  src: url("#{$quicksand-file-path}.eot");
+  src: url("#{$quicksand-file-path}.eot?#iefix") format("embedded-opentype"),
+    url("#{$quicksand-file-path}.woff2") format("woff2"), url("#{$quicksand-file-path}.woff") format("woff"),
+    url("#{$quicksand-file-path}.ttf") format("truetype"),
+    url("#{$quicksand-file-path}.svg#claire_handlight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Font families
+
+$op-family-default: Tahoma, Lucida, Arial, sans-serif;
+$op-family-quicksand: "quicksandbook";
+$op-family-handwriting: "claire_handlight";
+$op-family-opi: "opi";
+
+.op-font-quicksand {
+  font-family: $op-family-quicksand, sans-serif;
+}
+.op-font-handwriting {
+  font-family: $op-family-handwriting, cursive;
+}
+
+.opi {
+  display: inline-block;
+  position: relative;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-height: 1;
+  font-family: $op-family-opi;
+  text-rendering: auto;
+  --webkit-font-smoothing: antialiased;
+  --moz-osx-font-smoothing: greyscale;
+}
+
+// Simple line font sizes
+
+$op-font-xxs: 10px;
+$op-font-xs: 11px;
+$op-font-sm: 12px;
+$op-font-md: 13px;
+$op-font-lg: 16px;
+$op-font-xl: 18px;
+$op-font-xxl: 22px;
+$op-font-xxxl: 35px;
+
+// Double line font sizes
+
+$op-font-dxxs: $op-font-xxs * 2;
+$op-font-dxs: $op-font-xs * 2;
+$op-font-dsm: $op-font-sm * 2;
+$op-font-dmd: $op-font-md * 2;
+$op-font-dlg: $op-font-lg * 2;
+$op-font-dxl: $op-font-xl * 2;
+$op-font-dxxl: $op-font-xxl * 2;
+$op-font-dxxxl: $op-font-xxxl * 2;
+
+// Shortcut classes
+
+.op-font-xxs {
+  font-size: $op-font-xxs;
+}
+.op-font-xs {
+  font-size: $op-font-xs;
+}
+.op-font-sm {
+  font-size: $op-font-sm;
+}
+.op-font-md {
+  font-size: $op-font-md;
+}
+@mixin op-font-md {
+  font-size: $op-font-md;
+}
+.op-font-lg {
+  font-size: $op-font-lg;
+}
+.op-font-xl {
+  font-size: $op-font-xl;
+}
+@mixin op-font-xl {
+  font-size: $op-font-xl;
+}
+.op-font-xxl {
+  font-size: $op-font-xxl;
+}
+.op-font-xxxl {
+  font-size: $op-font-xxxl;
+}
+
+.op-font-dmd {
+  font-size: $op-font-dmd;
+}
+.op-font-dlg {
+  font-size: $op-font-dlg;
+}
+.op-font-dxl {
+  font-size: $op-font-dxl;
+}
+.op-font-dxxl {
+  font-size: $op-font-dxxl;
+}
+.op-font-dxxxl {
+  font-size: $op-font-dxxxl;
+}
+
+.op-font-male {
+  color: $op-color-male !important;
+}
+.op-font-female {
+  color: $op-color-female !important;
+}
+.op-font-green {
+  color: $op-color-green !important;
+}
+.op-font-green-light {
+  color: $op-color-green-light !important;
+}
+.op-font-green-dark {
+  color: $op-color-green-dark !important;
+}
+.op-font-lime {
+  color: $op-color-lime !important;
+}
+.op-font-yellow {
+  color: $op-color-yellow !important;
+}
+.op-font-orange {
+  color: $op-color-orange !important;
+}
+.op-font-red {
+  color: $op-color-red !important;
+}
+.op-font-black {
+  color: $op-color-text-main !important;
+}
+.op-font-grey {
+  color: $op-color-text-soft !important;
+}
+.op-font-grey-light {
+  color: $op-color-grey-light !important;
+}
+.op-font-grey-dark {
+  color: $op-color-grey-dark !important;
+}
+.op-font-blue-dark {
+  color: $op-color-blue-dark !important;
+}
+.op-font-white {
+  color: white !important;
+}
+
+.op-font-bg-male {
+  background-color: $op-color-male !important;
+  color: white;
+}
+.op-font-bg-female {
+  background-color: $op-color-female !important;
+  color: white;
+}
+.op-font-bg-green {
+  background-color: $op-color-green !important;
+  color: white;
+}
+.op-font-bg-green-light {
+  background-color: $op-color-green-light !important;
+  color: $op-color-text-main;
+}
+.op-font-bg-green-dark {
+  background-color: $op-color-green-dark !important;
+  color: white;
+}
+.op-font-bg-lime {
+  background-color: $op-color-lime !important;
+  color: white;
+}
+.op-font-bg-yellow {
+  background-color: $op-color-yellow !important;
+  color: white;
+}
+.op-font-bg-orange {
+  background-color: $op-color-orange !important;
+  color: white;
+}
+.op-font-bg-red {
+  background-color: $op-color-red !important;
+  color: white;
+}
+.op-font-bg-black {
+  background-color: $op-color-text-main !important;
+  color: white;
+}
+.op-font-bg-grey {
+  background-color: $op-color-text-soft !important;
+  color: white;
+}
+.op-font-bg-grey-light {
+  background-color: $op-color-grey-light !important;
+  color: $op-color-text-main;
+}
+.op-font-bg-grey-dark {
+  background-color: $op-color-grey-dark !important;
+  color: white;
+}
+.op-font-bg-blue-dark {
+  background-color: $op-color-blue-dark !important;
+  color: white;
+}
+.op-font-bg-white {
+  background-color: white !important;
+  color: $op-color-text-main;
+}

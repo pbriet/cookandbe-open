@@ -1,0 +1,39 @@
+
+boto3==1.33.6
+celery==5.3.6
+django==4.2.7
+django-cors-headers==4.3.1
+django-extensions==3.2.3
+django-queryinspect==1.1.0
+django-storages==1.14.2
+django-redis==5.4.0
+django-redis-cache==3.0.1
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.0
+facebook-sdk==3.1.0
+gunicorn==21.2.0
+pillow==10.1.0
+premailer==3.10.0
+psycopg2-binary==2.9.9
+pymongo==4.6.0
+pytz==2023.3
+PyYAML==6.0.1
+requests==2.31.0
+sendgrid==6.10.0
+watchdog[watchmedo]==3.0.0
+
+##### Testing #####
+# For external requirement, see: https://stackoverflow.com/questions/16584552/how-to-state-in-requirements-txt-a-direct-github-source
+git+https://gitlab.com/jeremymarc/django-smart-testing@0.1.3#egg=django-smart-testing
+mock~=1.0.1 # One test doesn't pass with 1.3.x  Mock should be removed, as it is included by default in Python 3.3+
+ipython~=7.17.0
+tblib~=1.6.0 # Traceback and parallelism
+ipdb~=0.13.9
+freezegun==1.3.0
+
+# I18N
+openpyxl~=3.0.7
+deep_translator~=1.4.4
+
+# Sentry
+sentry-sdk~=1.37.1

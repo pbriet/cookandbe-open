@@ -1,0 +1,16 @@
+.field-name {
+    width: 230px;
+    clear: left;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.field-input {
+    margin-top: 4px;
+    color: $op-color-edit;
+}
+
+.op-invalid-input, .form-control.op-invalid-input {
+    background-color: $op-color-input-invalid;
+    border: solid $op-page-content-border-width $op-color-grey-dark;
+}

@@ -1,0 +1,572 @@
+{% load op_mail_style %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <!-- NAME: LEFT SIDEBAR -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style type="text/css">
+        body,#bodyTable,#bodyCell{
+            height:100% !important;
+            margin:0;
+            padding:0;
+            width:100% !important;
+            font-family: Helvetica;
+            font-size: 15px;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        img,a img{
+            border:0;
+            outline:none;
+            text-decoration:none;
+        }
+        h1,h2,h3,h4,h5,h6{
+            margin:0;
+            padding:0;
+        }
+        p{
+            margin:1em 0;
+            padding:0;
+            text-align: justify;
+        }
+        a{
+            word-wrap:break-word;
+        }
+        .ReadMsgBody{
+            width:100%;
+        }
+        .ExternalClass{
+            width:100%;
+        }
+        .ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{
+            line-height:100%;
+        }
+        table,td{
+            mso-table-lspace:0pt;
+            mso-table-rspace:0pt;
+        }
+        #outlook a{
+            padding:0;
+        }
+        img{
+            -ms-interpolation-mode:bicubic;
+        }
+        body,table,td,p,a,li,blockquote{
+            -ms-text-size-adjust:100%;
+            -webkit-text-size-adjust:100%;
+        }
+        #bodyCell{
+            padding:20px;
+        }
+        .mcnImage{
+            vertical-align:bottom;
+        }
+        .mcnTextContent img{
+            height:auto !important;
+        }
+        body,#bodyTable{
+            background-color:#f1eee9;
+        }
+        #bodyCell{
+            border-top:0;
+        }
+        #templateContainer{
+            border:0;
+        }
+        h1{
+            color:#226622 !important;
+            display:block;
+            font-family:Helvetica;
+            font-size:34px;
+            font-style:normal;
+            font-weight:normal;
+            line-height:125%;
+            letter-spacing:-1px;
+            margin:0;
+            text-align:left;
+        }
+        h2{
+            color:#228822 !important;
+            display:block;
+            font-family:Helvetica;
+            font-size:26px;
+            font-style:normal;
+            font-weight:normal;
+            line-height:200%;
+            letter-spacing:-1px;
+            margin:0;
+            text-align:left;
+        }
+        h3{
+            color:#22bb22 !important;
+            display:block;
+            font-family:Helvetica;
+            font-size:18px;
+            font-style:normal;
+            font-weight:normal;
+            line-height:125%;
+            letter-spacing:-.5px;
+            margin:0;
+            text-align:left;
+        }
+        h4{
+            color:#808080 !important;
+            display:block;
+            font-family:Helvetica;
+            font-size:16px;
+            font-style:normal;
+            font-weight:bold;
+            line-height:125%;
+            letter-spacing:normal;
+            margin:0;
+            text-align:left;
+        }
+        #templatePreheader{
+            background-color:#f1eee9;
+            border-top:0;
+            border-bottom:0;
+        }
+        .preheaderContainer .mcnTextContent,.preheaderContainer .mcnTextContent p{
+            color:#606060;
+            font-family:Helvetica;
+            font-size:11px;
+            line-height:125%;
+            text-align:left;
+        }
+        .preheaderContainer .mcnTextContent a{
+            color:#606060;
+            font-weight:normal;
+            text-decoration:underline;
+        }
+        #templateHeader{
+            background-color:#FFFFFF;
+            border-top:0;
+            border-bottom:0;
+        }
+        .headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+            color:#606060;
+            font-family:Helvetica;
+            font-size:15px;
+            line-height:150%;
+            text-align:left;
+        }
+        .headerContainer .mcnTextContent a{
+            color:#6DC6DD;
+            font-weight:normal;
+            text-decoration:underline;
+        }
+        #templateBody{
+            background-color:#FFFFFF;
+            border-top:0;
+            border-bottom:0;
+        }
+        .bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+            color:#606060;
+            font-family:Helvetica;
+            font-size:15px;
+            line-height:150%;
+            text-align:left;
+        }
+        .bodyContainer .mcnTextContent a{
+            color:#666666;
+            font-weight:normal;
+            text-decoration:underline;
+        }
+        #templateFooter{
+            background-color:#f1eee9;
+            border-top:0;
+            border-bottom:0;
+        }
+        .footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+            color:#606060;
+            font-family:Helvetica;
+            font-size:11px;
+            line-height:125%;
+            text-align:left;
+        }
+        .footerContainer .mcnTextContent a{
+            color:#606060;
+            font-weight:normal;
+            text-decoration:underline;
+        }
+        @media only screen and (max-width: 600px){
+          body,table,td,p,a,li,blockquote{
+            -webkit-text-size-adjust:none !important;
+          }
+        }
+        @media only screen and (max-width: 600px){
+          body{
+              width:100% !important;
+              min-width:100% !important;
+          }
+
+}    @media only screen and (max-width: 600px){
+        td[id=bodyCell]{
+            padding:10px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnTextContentContainer]{
+            width:100% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnBoxedTextContentContainer]{
+            width:100% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcpreview-image-uploader]{
+            width:100% !important;
+            display:none !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        img[class=mcnImage]{
+            width:100% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnImageGroupContentContainer]{
+            width:100% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnImageGroupContent]{
+            padding:9px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnImageGroupBlockInner]{
+            padding-bottom:0 !important;
+            padding-top:0 !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        tbody[class=mcnImageGroupBlockOuter]{
+            padding-bottom:9px !important;
+            padding-top:9px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnCaptionTopContent],table[class=mcnCaptionBottomContent]{
+            width:100% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnCaptionLeftTextContentContainer],table[class=mcnCaptionRightTextContentContainer],table[class=mcnCaptionLeftImageContentContainer],table[class=mcnCaptionRightImageContentContainer],table[class=mcnImageCardLeftTextContentContainer],table[class=mcnImageCardRightTextContentContainer]{
+            width:100% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnImageCardLeftImageContent],td[class=mcnImageCardRightImageContent]{
+            padding-right:18px !important;
+            padding-left:18px !important;
+            padding-bottom:0 !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnImageCardBottomImageContent]{
+            padding-bottom:9px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnImageCardTopImageContent]{
+            padding-top:18px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnCaptionLeftContentOuter] td[class=mcnTextContent],table[class=mcnCaptionRightContentOuter] td[class=mcnTextContent]{
+            padding-top:9px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnCaptionBlockInner] table[class=mcnCaptionTopContent]:last-child td[class=mcnTextContent]{
+            padding-top:18px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnBoxedTextContentColumn]{
+            padding-left:18px !important;
+            padding-right:18px !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=mcnTextContent]{
+            padding-right:18px !important;
+            padding-left:18px !important;
+        }
+
+}
+    @media only screen and (max-width: 600px){
+        table[id=templateContainer],table[id=templatePreheader],table[id=templateHeader],table[id=templateBody],table[id=templateFooter]{
+            max-width:600px !important;
+            width:100% !important;
+        }
+    }
+    @media only screen and (min-width: 480px) and (max-width: 600px){
+        table[id=templateContainer],table[id=templatePreheader],table[id=templateHeader],table[id=templateBody],table[id=templateFooter]{
+            max-width:480px !important;
+            width:480px !important;
+        }
+    }
+    @media only screen and (max-width: 600px){
+        h1{
+            font-size:30px !important;
+            line-height:200% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        h2{
+            font-size:24px !important;
+            line-height:200% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        h3{
+            font-size:18px !important;
+            line-height:150% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        h4{
+            font-size:16px !important;
+            line-height:125% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[class=mcnBoxedTextContentContainer] td[class=mcnTextContent],td[class=mcnBoxedTextContentContainer] td[class=mcnTextContent] p{
+            font-size:18px !important;
+            line-height:125% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        table[id=templatePreheader]{
+            display:block !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=preheaderContainer] td[class=mcnTextContent],td[class=preheaderContainer] td[class=mcnTextContent] p{
+            font-size:14px !important;
+            line-height:115% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=headerContainer] td[class=mcnTextContent],td[class=headerContainer] td[class=mcnTextContent] p{
+            font-size:18px !important;
+            line-height:125% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=bodyContainer] td[class=mcnTextContent],td[class=bodyContainer] td[class=mcnTextContent] p{
+            font-size:18px !important;
+            line-height:125% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=footerContainer] td[class=mcnTextContent],td[class=footerContainer] td[class=mcnTextContent] p{
+            font-size:14px !important;
+            line-height:115% !important;
+        }
+
+}    @media only screen and (max-width: 600px){
+        td[class=footerContainer] a[class=utilityLink]{
+            display:block !important;
+        }
+    }
+      .action-btn {
+        letter-spacing: normal;
+        line-height: 100%;
+        text-align: center;
+        text-decoration: none;
+        color: #FFFFFF;
+      }
+      .recipe-photo {
+        max-width: 282px;
+        max-height: 188px;
+      }
+
+      /* Additional CSS */
+      {% block css %}
+      {% endblock css %}
+    </style>
+  </head>
+  <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="margin: 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #f1eee9;height: 100% !important;width: 100% !important;">
+    <!-- PREPROD_REPLACE -->
+    <center>
+      <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+        <tbody>
+          <tr>
+            <td align="center" valign="top" id="bodyCell">
+              <!-- BEGIN TEMPLATE // -->
+              <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer">
+                <tbody>
+                  <tr> <!-- PREHEADER -->
+                    <td align="center" valign="top">
+                      <!-- BEGIN PREHEADER // -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" id="templatePreheader">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="preheaderContainer" style="padding-top:9px;">
+                              <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
+                                <tbody class="mcnTextBlockOuter">
+                                  <tr>
+                                    <td valign="top" class="mcnTextBlockInner">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="366" class="mcnTextContentContainer">
+                                        <tbody><tr>
+                                            <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">
+                                              {% block summary %}
+                                              {% endblock summary %}
+                                            </td>
+                                          </tr>
+                                        </tbody></table>
+                                      <table align="right" border="0" cellpadding="0" cellspacing="0" width="197" class="mcnTextContentContainer">
+                                        <tbody>
+                                          <tr>
+                                            <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right:18px; padding-bottom:9px; padding-left:0;">
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- // END PREHEADER -->
+                    </td>
+                  </tr>
+                  <tr> <!-- HEADER -->
+                    <td align="center" valign="top">
+                      <!-- BEGIN HEADER // -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="headerContainer">
+                              <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock">
+                                <tbody class="mcnImageBlockOuter">
+                                  <tr>
+                                    <td valign="top" class="mcnTextBlockInner" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="282" class="mcnTextContentContainer" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                        <tbody>
+                                          <tr>
+                                            <td valign="top" class="mcnTextContent" style="padding-top: 9px;padding-left: 18px;padding-bottom: 9px;padding-right: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
+                                              <a href="{% cms_url '' %}" target="_blank" style="word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decoration: underline;"><img align="none" src="{% app_url /cookandbe/img/email-logo.png %}" style="width: 100%;margin: 0px;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !important;"></a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- // END HEADER -->
+                    </td>
+                  </tr>
+                  <tr> <!-- BODY -->
+                    <td align="center" valign="top">
+                      <!-- BEGIN BODY // -->
+                      <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody" style="border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FFFFFF;border-top: 0;border-bottom: 0;">
+                        <tr>
+                          <td valign="top" class="bodyContainer" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <!-- BANNER -->
+                            {% op_banner %}
+
+                            <!-- PERSONAL INFOS -->
+                            {% block personal_infos %}
+                              {% op_column left 50% %}
+                                {% op_container %}
+                                  {% op_button /my_account %}
+                                      {{ objective }}
+                                  {% op_button_end %}
+                                {% op_container_end %}
+                              {% op_column_end %}
+                              {% op_column left 50% %}
+                                {% op_container %}
+                                  {% op_button /config %}
+                                    IMC {{ imc_value }} ({{ imc_name }})
+                                  {% op_button_end %}
+                                {% op_container_end %}
+                              {% op_column_end %}
+                              <!-- {% op_separator %} -->
+                            {% endblock personal_infos %}
+
+                            {% op_separator %}
+
+                            <!-- CONTENT -->
+                            {% block content %}
+                            {% endblock content %}
+
+                            <!-- LAST WORD -->
+                            {% block no_last_word %}
+                              {% op_container %}
+                                {% block last_word %}
+                                {% endblock last_word %}
+                              {% op_container_end %}
+                            {% endblock no_last_word %}
+
+                            <!-- ACTIONS -->
+                            {% block noaction %}
+                              {% block noaction1 %}
+                                {% op_column left 50% %}
+                                  {% op_container %}
+                                    {% block action1 %}
+                                      {% op_button / %}
+                                        Accéder à compte
+                                      {% op_button_end %}
+                                    {% endblock action1 %}
+                                  {% op_container_end %}
+                                {% op_column_end %}
+                              {% endblock noaction1 %}
+                              {% block noaction2 %}
+                                {% op_column right 50% %}
+                                  {% op_container %}
+                                    {% block action2 %}
+                                    {% endblock action2 %}
+                                  {% op_container_end %}
+                                {% op_column_end %}
+                              {% endblock noaction2 %}
+                            {% endblock noaction %}
+
+                            <!-- SOCIAL -->
+                            {% block nosocial %}
+                              {% block social %}
+                                {% op_separator %}
+                                {% op_social %}
+                              {% endblock social %}
+                            {% endblock nosocial %}
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- // END BODY -->
+                    </td>
+                  </tr>
+                  <tr> <!-- FOOTER -->
+                    <td align="center" valign="top" style="mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                      <!-- BEGIN FOOTER // -->
+                      {% op_footer %}
+                      <!-- // END FOOTER -->
+                    </td>
+                  </tr>
+                  </tbody>
+              </table>
+              <!-- // END TEMPLATE -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+  </body>
+</html>

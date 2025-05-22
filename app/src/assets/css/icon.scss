@@ -1,0 +1,108 @@
+@mixin op-icon {
+	display: inline-block;
+	text-align: center;
+}
+
+.op-icon {
+	@include op-icon;
+}
+
+.op-icon-xxs {
+  @extend .op-icon;
+  height: ($op-font-xxs + 5px);
+  font-size: $op-font-xxs;
+  line-height: $op-font-xxs;
+}
+
+.op-icon-xs {
+  @extend .op-icon;
+  height: ($op-font-xs + 5px);
+  font-size: $op-font-xs;
+  line-height: $op-font-xs;
+}
+
+.op-icon-sm {
+  @extend .op-icon;
+  height: ($op-font-sm + 5px);
+  font-size: $op-font-sm;
+  line-height: $op-font-sm;
+}
+
+.op-icon-md {
+  @extend .op-icon;
+  height: ($op-font-md + 5px);
+  font-size: $op-font-md;
+  line-height: $op-font-md;
+}
+
+.op-icon-lg {
+  @extend .op-icon;
+  height: ($op-font-lg + 5px);
+  font-size: $op-font-lg;
+  line-height: $op-font-lg;
+}
+
+.op-icon-xl {
+  @extend .op-icon;
+  height: ($op-font-xl + 5px);
+  font-size: $op-font-xl;
+  line-height: $op-font-xl;
+}
+
+@mixin op-icon-xxl {
+  @include op-icon;
+  height: ($op-font-xxl + 5px);
+  font-size: $op-font-xxl;
+  line-height: $op-font-xxl;
+}
+
+.op-icon-xxl {
+	@include op-icon-xxl;
+}
+
+.op-icon-xxxl {
+  @extend .op-icon;
+  height: ($op-font-xxxl + 5px);
+  font-size: $op-font-xxxl;
+  line-height: $op-font-xxxl;
+}
+// Double line icons
+
+@mixin op-icon-dmd {
+  @include op-icon;
+  height: ($op-font-dmd + 10px);
+  font-size: $op-font-dmd + 6px;
+  line-height: $op-font-md + 6px;
+}
+
+.op-icon-dmd {
+	@include op-icon-dmd;
+}
+
+.op-icon-dlg {
+  @extend .op-icon;
+  height: ($op-font-dlg + 12px);
+  font-size: $op-font-dlg + 8px;
+  line-height: $op-font-dlg + 8px;
+}
+
+.op-icon-dxl {
+  @extend .op-icon;
+  height: ($op-font-dxl + 14px);
+  font-size: $op-font-dxl + 10px;
+  line-height: $op-font-dxl + 10px;
+}
+
+.op-icon-dxxl {
+  @extend .op-icon;
+  height: ($op-font-dxxl + 16px);
+  font-size: $op-font-dxxl + 12px;
+  line-height: $op-font-dxxl + 12px;
+}
+
+.op-icon-dxxxl {
+  @extend .op-icon;
+  height: ($op-font-dxxxl + 18px);
+  font-size: $op-font-dxxxl + 14px;
+  line-height: $op-font-dxxxl + 14px;
+}

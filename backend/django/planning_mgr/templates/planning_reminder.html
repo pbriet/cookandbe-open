@@ -1,0 +1,34 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Pensez à planifier vos repas
+{% endblock title %}
+
+{% block summary %}
+  Votre planning de repas se termine {{ date|date:"l"|capfirst }}
+{% endblock summary %}
+
+{% block action1 %}
+  {% op_button /calendar %}
+    Accéder à mon planning
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Votre planning se termine bientôt</h1>
+    <p>
+      Vous avez planifié vos repas jusqu'à <b>{{ date|date:"l"|capfirst }}</b>
+    </p>
+    <p>
+      Pensez à préparer une nouvelle liste de courses pour la suite !
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block last_word %}
+  On vous attend sur <a href="{% cms_url '' %}" target="_blank">{% cms_url '' %}</a>
+{% endblock last_word %}
+
+

@@ -1,0 +1,50 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Donnez-nous votre avis sur Cook&amp;Be
+{% endblock title %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Qu'avez-vous pensé de Cook&amp;Be ?</h1>
+
+    <p>
+      Prenez <b>moins de 5 minutes</b> pour nous donner votre avis.
+    </p>
+    <p>
+      Nous cherchons à mieux répondre à vos attentes.
+    </p>
+    <p>
+      Avez-vous apprécié votre première visite sur Cook&amp;Be ?<br/>
+      <a href="https://www.cookandbe.com/first_visit_poll/?id={{ userid }}" target="_blank">
+        Aidez-nous en répondant à ce petit questionnaire
+      </a>
+    </p>
+    <p>
+      Ce ne sera pas long, c'est promis !
+    </p>
+    <small>
+      Si le lien ne fonctionne pas, copier le texte suivant dans votre navigateur:
+      <center>{% app_url /first_visit_poll/ %}?id={{ userid }}</center>
+    </small>
+  {% op_container_end %}
+{% endblock content %}
+
+
+{% block action1 %}
+  {% op_button /first_visit_poll/?id={{userid}} %}
+    Répondre
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block personal_infos %}
+{% endblock personal_infos %}
+
+{% block last_word %}
+  Merci et à bientôt sur Cook&amp;Be !
+{% endblock %}
+

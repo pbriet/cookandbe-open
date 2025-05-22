@@ -1,0 +1,73 @@
+
+.op-tabs {
+    width: 100%;
+
+    &:after {
+        @extend .clearfix;
+    }
+
+    .op-tab {
+        float: left;
+        padding: 10px 15px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border: $op-page-content-border-width solid $op-color-border;
+        border-bottom: none;
+        border-left: none;
+        background-color: $op-color-grey-light;
+        color: $op-color-text-main;
+        font-weight: bold;
+
+        &:first-child {
+            border-left: $op-page-content-border-width solid $op-color-border;
+        }
+        &:hover {
+            color: black;
+            cursor: pointer;
+        }
+        &.active {
+            color: $op-color-red;
+            cursor: default;
+            background-color: white;
+            border-bottom: $op-page-content-border-width solid white;
+            margin-bottom: (-$op-page-content-border-width);
+        }
+    }
+}
+
+.op-tabs-expanded {
+    display: table;
+    padding: 0px;
+    width: 100%;
+
+    .op-tab {
+        border: $op-page-content-border-width solid $op-color-border;
+        border-left: none;
+        float: none;
+        text-align: center;
+        border-radius: 0px;
+        padding: 10px 20px;
+        font-size: $op-font-lg;
+        display: table-cell;
+        background-color: $op-color-grey-light;
+        color: $op-color-text-main;
+        font-weight: bold;
+
+        &:first-child {
+            border-left: $op-page-content-border-width solid $op-color-border;
+        }
+        &:hover {
+            color: black;
+            cursor: pointer;
+        }
+        &.active {
+            color: $op-color-red;
+            cursor: default;
+            background-color: white;
+            border-bottom: none;
+        }
+    }
+
+    /* Fix bug: sous chrome, display table entre en conflit avec clearfix... */
+    &:after { display: none; }
+}

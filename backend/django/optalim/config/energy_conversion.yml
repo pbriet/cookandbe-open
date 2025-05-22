@@ -1,0 +1,51 @@
+#1 g de glucide = 4 kcal
+glucids:
+  kcal_per_g: 4
+  nutrients:
+    - "glucides totaux (par différence)"
+    - "amidon"
+    - "sucres totaux"
+    - "sucres ajoutés"
+
+#1 g de protéine = 4 kcal
+proteins:
+  kcal_per_g: 4
+  nutrients:
+    - "protéines"
+
+# Special entries for calories. just saying that 1kcal = 1kcal...
+calories:
+  kcal_per_g: 1
+  nutrients:
+    - "énergie (kilocalories)"
+    
+#1 g de lipide = 9 kcal
+lipids:
+  kcal_per_g: 9
+  nutrients:
+    - "acides gras monoinsaturés totaux"
+    - "acides gras monoinsaturés, 18:1c, octadécénoïque"
+    - "acides gras polyinsaturés totaux"
+    - "acides gras polyinsaturés,  22:6 n-3, docosahexaénoïque"
+    - "acides gras polyinsaturés, 18:2 c,c n-6, linoléique, octadécadiénoïque"
+    - "acides gras polyinsaturés, 18:3 c,c,c  n-3, linolénique, octadécatriénoïque"
+    - "acides gras polyinsaturés, 20:4  n-6, eïcosatétraénoïque"
+    - "acides gras polyinsaturés, 20:5 n-3, eïcosapentaénoïque"
+    - "acides gras saturés totaux"
+    - "acides gras saturés, 10:0, décanoïque"
+    - "acides gras saturés, 12:0, dodécanoïque"
+    - "acides gras saturés, 14:0, tétradécanoïque"
+    - "acides gras saturés, 16:0, hexadécanoïque"
+    - "acides gras saturés, 18:0, octadécanoïque"
+    - "acides gras saturés, 4:0, butanoïque"
+    - "acides gras saturés, 6:0, hexanoïque"
+    - "acides gras saturés, 8:0, octanoïque"
+    - "lipides totaux"
+    - "acide gras laurique, myristique et palmitique"
+
+
+#1 g d’alcool = 7 kcal
+alcool:
+  kcal_per_g: 7
+  nutrients:
+    - "alcool"

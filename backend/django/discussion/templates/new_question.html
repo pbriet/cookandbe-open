@@ -1,0 +1,38 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Nouvelle question utilisateur
+{% endblock title %}
+
+{% block personal_infos %}
+{% endblock personal_infos %}
+
+{% block summary %}
+{% endblock summary %}
+
+{% block action1 %}
+  {% op_button /question/ secure %}
+    Voir toutes les questions
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block no_last_word %}
+{% endblock no_last_word %}
+
+{% block content %}
+  {% op_container %}
+    Un utilisateur a posé la question suivante :
+    <p>
+      <b>&gt;&nbsp; {{ discussion_title }}</b>
+    </p>
+    <br><br>
+    <a class="mcnButton action-btn" href="{% app_url_secure '/discussion/' %}{{ discussion_id }}" target="_blank">
+      Cliquez ici pour lui répondre !
+    </a>
+  {% op_container_end %}
+{% endblock content %}
+

@@ -1,0 +1,36 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Votre abonnement a été résilié
+{% endblock title %}
+
+{% block summary %}
+  Votre abonnement a été résilié
+{% endblock summary %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Votre abonnement a été résilié</h1>
+    <p>
+      Nous confirmons que votre abonnement <i>{{ transaction_ref }}</i> a bien été résilié.
+    </p>
+    <p>
+      Vous avez désormais accès à votre compte en mode gratuit (régime "équilibre" et fonctionnalités limitées).<br/>
+    </p>
+    <h2>Votre avis nous est précieux</h2>
+    <p>
+      Vous n'avez pas été satisfait de notre service ? N'hésitez pas à nous le dire !<br/>
+      {% brand_name %} s'améliore, jour après jour, grâce à vos retours.<br/>
+      Envoyez-nous un message à {% support_email %} !
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block no_last_word %}
+{% endblock no_last_word %}
+
+

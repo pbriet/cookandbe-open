@@ -1,0 +1,39 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Vous n'avez pas mis à jour votre poids depuis le {{ last_update|date:"d F" }}
+{% endblock title %}
+
+{% block summary %}
+  Pour de meilleures suggestions, nous vous encourageons à mettre à jour votre poids
+{% endblock summary %}
+
+{% block action1 %}
+  {% op_button /userhome/ %}
+    Mettre à jour
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Mettez à jour votre poids</h1>
+
+    <h2>Pour des apports caloriques mieux adaptés</h2>
+    <p>
+      Cela fait quelques temps que vous n'avez pas mis à jour vos informations. Votre poids a-t-il récemment évolué ?
+    </p>
+    <p>
+      Vous disposez d'une <b>courbe de poids sur votre page d'accueil</b> (colonne de gauche).<br/>
+      Cliquez sur "mettre à jour" et renseignez la nouvelle valeur.
+    </p>
+    <p>
+      {% brand_name %} <b>adapte votre alimentation</b> en fonction de l'évolution de votre poids, afin de vous aider à le contrôler.
+      Grâce aux informations que vous nous communiquez, les plats et quantités suggérés vous correspondent au mieux.
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+

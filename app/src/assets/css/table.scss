@@ -1,0 +1,140 @@
+@mixin op-table-row-even {
+  background-color: $op-color-table-row-even;
+}
+
+@mixin op-table-row-odd {
+  background-color: $op-color-table-row-odd;
+}
+
+@mixin op-table-header {
+  display: table-header-group;
+  font-weight: bold;
+  text-align: center;
+}
+
+.op-table-header {
+	@include op-table-header;
+}
+
+@mixin op-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@mixin op-table-cell-text {
+  @include op-table-cell;
+
+  padding: 0px 5px;
+}
+
+@mixin op-table-cell-icon {
+  @include op-table-cell;
+
+  text-align: center;
+  width: 100px;
+}
+
+@mixin op-table-row {
+  display: table-row;
+  text-align: left;
+
+  &:nth-child(even) {
+    @include op-table-row-even;
+  }
+  &:nth-child(odd) {
+    @include op-table-row-odd;
+  }
+}
+
+@mixin op-table {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+
+	.op-header {
+		@include op-table-header;
+	}
+	tr {
+		@include op-table-row;
+	}
+	.op-row {
+		@include op-table-row;
+	}
+	td {
+		@include op-table-cell;
+	}
+	.op-cell {
+		@include op-table-cell;
+	}
+	.op-cell-text {
+		@include op-table-cell-text;
+	}
+	.op-cell-icon {
+		@include op-table-cell-icon;
+	}
+}
+
+.op-table {
+	@include op-table;
+}
+
+.op-table-auto {
+	@include op-table;
+
+  & > div {
+    @include op-table-row;
+
+    &:first-child {
+      @include op-table-header;
+      background-color: transparent !important;
+    }
+    &:nth-child(odd) {
+      & > div {
+        @include op-table-cell-text;
+      }
+    }
+    &:nth-child(even) {
+      & > div {
+        @include op-table-cell-text;
+      }
+    }
+  }
+}
+
+@mixin op-table-focus($hover_font_color: black, $hover_bg_color: $op-color-green-light) {
+  tr,
+  .op-row,
+  .op-table-row {
+    &:hover {
+      cursor: pointer;
+      color: $hover_font_color !important;
+      background-color: $hover_bg_color !important;
+    }
+  }
+}
+
+.op-raw-table {
+  display: table;
+}
+.op-raw-row {
+  display: table-row;
+}
+.op-raw-cell {
+  display: table-cell;
+}
+
+.op-table-sm {
+  @media (min-width: $bootstrap-xs-min) {
+	  @include op-table;
+  }
+}
+.op-table-md {
+  @media (min-width: $bootstrap-sm-min) {
+	  @include op-table;
+  }
+}
+.op-table-lg {
+  @media (min-width: $bootstrap-md-min) {
+	  @include op-table;
+  }
+}

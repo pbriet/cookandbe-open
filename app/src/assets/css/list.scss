@@ -1,0 +1,18 @@
+
+@mixin op-list-item {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &:nth-child(even)   { @include op-table-row-even; }
+    &:nth-child(odd)    { @include op-table-row-odd; }
+}
+
+.op-list {
+    list-style: none;
+    padding: 0px;
+	margin-left: 21px;
+
+    &>li { @include op-list-item; }
+    .op-item { @include op-list-item; }
+}

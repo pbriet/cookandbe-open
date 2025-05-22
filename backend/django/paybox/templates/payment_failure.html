@@ -1,0 +1,41 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Votre commande a échoué
+{% endblock title %}
+
+{% block summary %}
+  Votre commande a échoué
+{% endblock summary %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Votre commande a échoué</h1>
+    <p>
+      Votre commande du {{ date|date }} n'a pas pu être conclue. Cela peut être dû à une annulation de votre part,
+      ou bien une erreur lors du paiement  (carte expirée, invalide, ...).
+    </p>
+    <p>
+      N'hésitez pas à nous contacter si vous souhaitez obtenir davantage d'explications.<br/>
+      Voici les détails :
+    </p>
+    <table>
+      {% for key, value in payment_details.items %}
+      <tr>
+        <td>{{ key }}</td>
+        <td>{{ value }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block last_word %}
+  Nous vous souhaitons une excellente expérience {% brand_name %} !
+{% endblock last_word %}
+
+

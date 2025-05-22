@@ -1,0 +1,36 @@
+.navbar {
+  background-color: none;
+  background-image: none;
+  border-radius: 0px;
+}
+
+.navbar-default {
+  background-color: none;
+  background-image: none;
+  border-radius: 0px;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.op-menu {
+  margin-bottom: 0px;
+
+  .navbar-brand {
+    padding: 10px;
+    margin-right: 0px;
+
+    img {
+      @media (max-width: $bootstrap-xs-max) {
+        height: 40px;
+      }
+      @media (min-width: $bootstrap-sm-min) {
+        height: 50px;
+      }
+    }
+  }
+}

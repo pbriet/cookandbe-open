@@ -1,0 +1,128 @@
+*.py[cod]
+
+# C extensions
+*.so
+*.o
+
+# Packages
+*.egg
+*.egg-info
+dist
+dist_secure
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib64
+
+# Installer logs
+pip-log.txt
+*.log
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# MakeFile
+*Makefile.depends
+*Makefile.rules
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.idea
+.pydevproject
+*$py.class
+.vagrant
+/vagrant_ansible_inventory_default
+*~
+/connect_db.sh
+/src/django/connect_db.sh
+*.kate-swp
+.tern-port
+.vscode
+.mypy_cache
+
+# Nodejs modules
+angular/node_modules
+frontend/node_modules
+log_watcher/node_modules
+
+# Bower Vendor files (external JS libraries)
+angular/vendor
+
+# Generated CSS/JS files
+angular/compiled
+angular/src/_app_base*js
+/frontend/dist
+
+
+# Django collected static files
+static/admin
+static/debug_toolbar
+static/django_extensions
+static/rest_framework
+
+# Sass cache
+angular/.sass-cache
+
+# Hippocrate related
+/django/hippocrate/test
+/django/hippocrate/check
+/django/hippocrate/cpptest
+/django/hippocrate/lib/gecode
+/django/hippocrate/lib/ortools
+/django/hippocrate/cpptest_results.xml
+
+# BDD backups
+/backups/*
+/django/hippocrate/benchmark/darwin_*.yml
+/django/hippocrate/darwin*.prof
+/django/hippocrate/darwin*.gif
+/django/hippocrate/benchmark/backup/*.yml
+/celerybeat-schedule
+
+# Django dev logs
+/logs/*.html
+/static/root/robots.txt
+/django/:memory
+angular/src/_app_args.*.js
+*.retry
+/backend/db-persistence/data
+
+# JS logs
+npm-debug.log*
+
+# Vue local env files
+.env.local
+.env.*.local
+logs
+email-logs
+
+*.tar.gz
+
+# CMS static files
+/cms/src/static
+
+# Old angular
+/angular_frontend/vendor/*
+
+# IDE
+.vscode
+*.psql
+*.csv
+ciqual-*.xml
+backend/old-db-persisence
+nginx-clientcerts/*.crt
+nginx-clientcerts/*.csr
+nginx-clientcerts/*.key
+nginx-clientcerts/*.pfx
+backend/db-persistence/.user_scripts_initialized

@@ -1,0 +1,126 @@
+.block {
+  display: inline-block;
+}
+.fleft {
+  float: left;
+}
+.fright {
+  float: right;
+}
+
+.full-mw {
+  max-width: 100%;
+}
+.full-w {
+  width: 100%;
+}
+.full-mh {
+  max-height: 100%;
+}
+.full-h {
+  height: 100%;
+}
+
+.vp-xs {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.vp-sm {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.vp-md {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.vp-lg {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.hp-xs {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.hp-sm {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.hp-md {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.hp-lg {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.vm-xs {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+@mixin vm-sm {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.vm-md {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@mixin vm-lg {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.hm-xs {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.hm-sm {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.hm-md {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.hm-lg {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.hvm-auto {
+  margin: auto;
+}
+.vm-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.hm-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hvm-none {
+  margin: 0;
+}
+.vm-none {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.hm-none {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hvp-none {
+  padding: 0;
+}
+.vp-none {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.hp-none {
+  padding-left: 0;
+  padding-right: 0;
+}

@@ -1,0 +1,42 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Modification de votre apport calorique
+{% endblock title %}
+
+{% block summary %}
+  {% brand_name %} a mis a jour votre apport calorique de référence
+{% endblock summary %}
+
+{% block content %}
+  {% op_container %}
+    <h1>{% brand_name %} s'adapte à votre poids</h1>
+
+    <p>
+      Vous avez récemment mis à jour votre poids sur {% brand_name %}.
+    </p>
+    <p>
+      Des difficultés à perdre du poids ? {% brand_name %} va vous aider, et s'adapte à votre métabolisme.
+    </p>
+    <p>
+      Nous avons <b>modifié votre régime</b> afin de mieux correspondre à votre profil. Notamment,
+      votre apport calorique a été corrigé de <b>{{ percentage }}%</b>, à <b>{{ nb_calories | floatformat:0 }} kcal</b>.
+    </p>
+    <p>
+      {% brand_name %} continuera à s'adapter pour vous accompagner dans votre perte de poids.
+    </p>
+
+    {% if nb_eaters > 1 %}
+      <h3>Attention : la répartition des parts est modifiée</h3>
+
+      <p>
+        Suite à la réadaptation des calories, la répartition des quantités entre les différents membres de votre foyer a changé.
+      </p>
+      <p>
+        Rendez-vous sur la page <a href="{% app_url /config/family/ %}" target="_blank">Foyer</a> pour la consulter.
+      </p>
+    {% endif %}
+  {% op_container_end %}
+{% endblock content %}
+

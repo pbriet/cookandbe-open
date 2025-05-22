@@ -1,0 +1,153 @@
+version: '3.8'
+
+x-common-django-variables: &common-django-variables
+  DB_NAME: cookandbe
+  DB_HOSTNAME: db # name of docker image
+  DB_PORT: '5432'
+  DB_USERNAME: postgres
+  DB_PASSWORD: dev
+  AWS_ACCESS_KEY_ID: ""
+  AWS_SECRET_ACCESS_KEY: ""
+  AWS_STORAGE_BUCKET_NAME: ""
+  APP_BASE_URL: http://app.cookandbe.localhost
+  RABBITMQ_URL: "amqp://user:password@rabbitmq/"
+  MONGO_HOST: mongodb
+  DEBUG: 'True'
+
+
+
+services:
+  db:
+    build: db
+    user: root
+    environment:
+      POSTGRESQL_MULTIPLE_DATABASES: cookandbe,cms
+      POSTGRESQL_PASSWORD: dev
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_POSTGRES_PASSWORD: dev
+      POSTGRESQL_INITSCRIPTS_USERNAME: postgres
+      POSTGRESQL_INITSCRIPTS_PASSWORD: dev
+    volumes:
+      - ./backend/db-persistence:/bitnami/postgresql
+      - ./backups:/backups
+    ports:
+      - "5432:5432"
+
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@cookandbe.com
+  #     PGADMIN_DEFAULT_PASSWORD: root
+  #   ports:
+  #     - "5050:80"
+  # portainer:
+  #   image: portainer/portainer
+  #   depends_on:
+  #     - nginx-proxy
+  #   command: --no-auth
+  #   ports:
+  #     - "9000:9000"
+  #   volumes:
+  #     - '/var/run/docker.sock:/var/run/docker.sock'
+  #     - '/opt/portainer:/data portainer/portainer'
+  #   environment:
+  #     VIRTUAL_HOST: portainer.cookandbe.localhost # Managed by nginx-proxy
+  #     VIRTUAL_PORT: 9000
+
+  # adminer:
+  #   image: adminer:4.7.6
+  #   restart: 'no'
+  #   depends_on:
+  #     - nginx-proxy
+  #   ports:
+  #     - "9998:8080"
+  #   environment:
+  #     VIRTUAL_HOST: adminer.cookandbe.localhost # Managed by nginx-proxy
+  #     VIRTUAL_PORT: 8080
+
+  backend:
+    build:
+      context: backend
+    volumes:
+      - ./backend/django:/app
+      - ./static-django:/static
+      - ./email-logs:/logs
+    dns:
+      - 8.8.8.8
+      - 4.4.4.4
+    ports:
+      - "9991:8080"
+    depends_on:
+      - db
+      - mongodb
+      - nginx-proxy
+      - redis
+    environment:
+      <<: *common-django-variables
+      VIRTUAL_HOST: backend.cookandbe.localhost # Managed by nginx-proxy
+      RUN_MODE: api
+
+  app:
+    build:
+      context: app
+      target: development
+    volumes:
+      - ./app/.env.development:/app/.env.development
+      - ./app/src:/app/src
+      - ./app/public:/app/public
+      - ./app/yarn.lock:/tmp/yarn.lock
+    ports:
+      - "9994:8080"
+    environment:
+      VIRTUAL_HOST: app.cookandbe.localhost # Managed by nginx-proxy
+      VIRTUAL_PROTO: https
+      VIRTUAL_PORT: 8080
+
+  rabbitmq:
+    image: public.ecr.aws/bitnami/rabbitmq:3.12.8
+    environment:
+      RABBITMQ_USERNAME: user
+      RABBITMQ_PASSWORD: password
+
+  mongodb:
+    image: public.ecr.aws/bitnami/mongodb:7.0.5
+
+  redis:
+    image: public.ecr.aws/bitnami/redis:6.2.14
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+
+  celery:
+    build:
+      context: backend
+    volumes:
+      - ./backend/django:/app
+      - ./email-logs:/logs
+    depends_on:
+      - db
+      - redis
+      - rabbitmq
+    environment:
+      <<: *common-django-variables
+      RUN_MODE: celery
+
+  beat:
+    build:
+      context: backend
+    volumes:
+      - ./backend/django:/app
+      - ./email-logs:/logs
+    depends_on:
+      - db
+      - redis
+    environment:
+      <<: *common-django-variables
+      RUN_MODE: beat
+
+  nginx-proxy: # Development only : allow tu use VIRTUAL_HOST environment varialbes
+    image: jwilder/nginx-proxy
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+    ports:
+      - "80:80"

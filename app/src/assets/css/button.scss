@@ -1,0 +1,95 @@
+.op-big-btn {
+  display: table;
+  table-layout: fixed;
+
+  @mixin op-row {
+    display: table-row;
+    width: 100%;
+  }
+
+  .op-row {
+	  @include op-row;
+  }
+
+  .op-row-xs {
+    @media (max-width: $bootstrap-xxs-max) {
+      @include op-row;
+    }
+  }
+  .op-row-sm {
+    @media (min-width: $bootstrap-xs-min) and (max-width: $bootstrap-xs-max) {
+      @include op-row;
+    }
+  }
+  .op-row-md {
+    @media (min-width: $bootstrap-sm-min) and (max-width: $bootstrap-sm-max) {
+      @include op-row;
+    }
+  }
+  .op-row-lg {
+    @media (min-width: $bootstrap-md-min) {
+      @include op-row;
+    }
+  }
+
+  @mixin op-cell {
+    padding: 5px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .op-cell {
+	  @include op-cell;
+  }
+
+  .op-cell-text {
+    @include op-cell;
+    text-align: justify;
+  }
+
+  .op-cell-icon {
+    @include op-cell;
+    width: 65px;
+    text-align: center;
+  }
+
+  .op-cell-xs {
+    @media (max-width: $bootstrap-xxs-max) {
+      @include op-cell;
+    }
+  }
+  .op-cell-sm {
+    @media (min-width: $bootstrap-xs-min) and (max-width: $bootstrap-xs-max) {
+      @include op-cell;
+    }
+  }
+  .op-cell-md {
+    @media (min-width: $bootstrap-sm-min) and (max-width: $bootstrap-sm-max) {
+      @include op-cell;
+    }
+  }
+  .op-cell-lg {
+    @media (min-width: $bootstrap-md-min) {
+      @include op-cell;
+    }
+  }
+}
+
+.op-bg-glyphicon {
+  position: absolute;
+
+  &:before {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.04;
+    font-size: 90px;
+    margin-left: -45px;
+    margin-top: 5px;
+  }
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+}

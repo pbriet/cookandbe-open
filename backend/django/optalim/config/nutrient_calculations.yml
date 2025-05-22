@@ -1,0 +1,28 @@
+- name: "vitamine a"  # VitA = retinol + betacarotene / 6
+  sum:
+    - "rétinol"
+    - division:
+      - "béta carotène"
+      - 6
+
+- name: "acide gras laurique, myristique et palmitique"
+  sum:
+    - "acides gras saturés, 12:0, dodécanoïque"  # acide laurique
+    - "acides gras saturés, 14:0, tétradécanoïque"  # acide myristique
+    - "acides gras saturés, 16:0, hexadécanoïque" # acide palmitique
+
+- name: "omega3"
+  sum:
+    - "acides gras polyinsaturés,  22:6 n-3, docosahexaénoïque"  # DHA (Omega 3)
+    - "acides gras polyinsaturés, 20:5 n-3, eïcosapentaénoïque"  # EPA (Omega 3)
+    - "acides gras polyinsaturés, 18:3 c,c,c  n-3, linolénique, octadécatriénoïque"  # ALA (Omega 3)
+
+- name: "EPA+DHA"
+  sum:
+    - "acides gras polyinsaturés,  22:6 n-3, docosahexaénoïque"  # DHA (Omega 3)
+    - "acides gras polyinsaturés, 20:5 n-3, eïcosapentaénoïque"  # EPA (Omega 3)
+
+- name: "K1+K2"
+  sum:
+    - "Vitamine K1"
+    - "Vitamine K2"

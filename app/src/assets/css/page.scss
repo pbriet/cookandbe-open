@@ -1,0 +1,99 @@
+$menu-user-width: 235px;
+
+.op-page {
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  min-height: $op-page-banner-height + 100px;
+
+  @media (min-width: $bootstrap-sm-min) {
+    margin-left: $menu-user-width;
+  }
+
+  .container {
+    width: 100%;
+  }
+  .op-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+.op-page-public {
+  position: relative;
+  min-height: $op-page-banner-height + 100px;
+  padding-top: 75px !important;
+  padding-bottom: 40px !important;
+  margin: auto;
+}
+
+.op-page-block {
+  position: relative;
+}
+
+.op-page-block-white {
+  @extend .op-page-block;
+  color: $op-color-text-main;
+  background-color: white;
+}
+
+.op-page-content {
+  @extend .op-page-block-white;
+
+  height: 100%;
+  padding: 15px 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  &:after {
+    @extend .clearfix;
+  }
+}
+
+.op-page-title {
+  text-align: center;
+  background-color: rgba($op-color-lime, 0.8);
+  font-size: $op-font-lg;
+  padding: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  word-break: break-word;
+  color: white;
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a {
+    color: white;
+  }
+
+  small {
+    color: white;
+  }
+}
+
+.op-link-toolbar {
+  margin: auto;
+  display: inline-block;
+  padding: 10px 0px;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+
+    svg {
+      @media (max-width: $bootstrap-xs-max) {
+        @include op-icon-xxl;
+        margin: 0px 5px;
+      }
+      @media (min-width: $bootstrap-sm-min) {
+        @include op-icon-dmd;
+        margin: 0px 10px;
+      }
+    }
+  }
+}

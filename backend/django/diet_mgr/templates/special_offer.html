@@ -1,0 +1,49 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  -50% sur l'alimentation "{{ diet.title }}" !
+{% endblock title %}
+
+{% block summary %}
+  {% brand_name %} vous propose une réduction de -50% sur {{ diet.email_title }}
+{% endblock summary %}
+
+{% block action1 %}
+  {% op_button /premium_choice/ %}
+    M'abonner
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block content %}
+  {% op_container %}
+    <h2>Offre spéciale : -50% sur votre abonnement</h2>
+
+    <p>
+      <b>Offre valable pendant 48h</b>
+    </p>
+    <p>
+      Envie d'une alimentation vraiment adaptée à vos besoins ?<br/><br/>
+      {% brand_name %} vous propose une offre exceptionnelle : <b>-50% sur l'abonnement
+        {{ subscription_name }}</b>.
+    </p>
+
+    <h3><span style="color:#ff6600">{{ diet.email_title.capitalize }}</span>
+         à partir de <span style="color:#ff6600">{{ best_tariff }}€ / mois</span> !</h3>
+    <p>
+      Bénéficiez d'avantages exceptionnels :
+      <ul>
+        {% for advantage in advantages %}
+          <li>{{ advantage | safe}}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    <p>
+      Rendez-vous vite sur votre compte pour en profiter.
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+

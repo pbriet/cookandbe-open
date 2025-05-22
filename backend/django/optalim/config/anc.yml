@@ -1,0 +1,400 @@
+base: # Generic values for all profiles
+  - name: "énergie (kilocalories)"
+    key: 'calories'
+    unit: 'kcal'
+    min: 97
+    max: 103
+    mode: 'percentage_energy'
+    daily_tolerance: 5
+    cost: 3
+
+  - name: "lipides totaux"
+    key: 'lipids'
+    min: 35
+    max: 40
+    unit: 'g'
+    mode: 'percentage_energy'
+    daily_tolerance: 5
+    cost: 3
+
+  - name: "sucres totaux"
+    key: 'sugar'
+    max: 100  # RNP 2017
+    unit: 'g'
+    # mode: 'percentage_energy'
+    daily_tolerance: 20
+    cost: 3
+
+  # - name: "sucres ajoutés"
+  #   key: "added_sugar"
+  #   max: 14 # OMS says 10%, but we include more than just added_sugar
+  #   unit: 'g'
+  #   mode: 'percentage_energy'
+  #   daily_tolerance: 10
+  #   cost: 3
+
+  - name: "protéines"
+    key: 'proteins'
+    min: 10
+    max: 20
+    unit: 'g'
+    mode: 'percentage_energy'
+    daily_tolerance: 5
+    cost: 3
+
+  - name: "fibres alimentaires totales"
+    key: 'fibres'
+    min: 20  # RNP 2017 : 30g/j
+    max: 35
+    unit: 'g'
+    daily_tolerance: 5
+    cost: 3
+
+  # - name: "acides gras polyinsaturés, 18:2 c,c n-6, linoléique, octadécadiénoïque"  # Omega 6
+  #   key: 'omega6'
+  #   min: 4  # RNP 2017
+  #   unit: 'g'
+  #   mode: 'percentage_energy'
+  #   daily_tolerance: 'inf'
+  #   cost: 3
+
+  # - name: "acides gras polyinsaturés, 18:3 c,c,c  n-3, linolénique, octadécatriénoïque"  # ALA (Omega 3)
+  #   key: 'omega3_ala'
+  #   min: 1
+  #   unit: 'g'
+  #   mode: 'percentage_energy'
+  #   daily_tolerance: 80
+  #   cost: 3
+
+  # - name: "acides gras polyinsaturés,  22:6 n-3, docosahexaénoïque"   # DHA (Omega 3)
+  #   key: 'omega3_dha'
+  #   min: 0.25  # RNP 2017
+  #   unit: 'g'
+  #   daily_tolerance: two_weekly_inputs_min
+  #   cost: 3
+
+  # - name: "EPA+DHA"   # EPA + DHA (Omega 3)
+  #   key: 'omega3_epa_dha'
+  #   min: 0.5  # RNP 2017
+  #   unit: 'g'
+  #   daily_tolerance: two_weekly_inputs_min
+  #   cost: 3
+
+  - name: "sodium"
+    key: 'sodium'
+    max: 3200   #  1g de sel = 400 mg de sodium + 600 mg de chlorure.  Recommandation ANC  6-8g  (mais plafond)
+                # L'équivalent approximatif est donc d'environ 3.2g de sodium par jour
+    unit: 'mg'
+    daily_tolerance: 50
+    cost: 3
+
+  # - name: "potassium"
+  #   key: 'potassium'
+  #   min: 585   # Plus dans les RNP/BNM. Lié au sodium
+  #   max: 6000
+  #   unit: 'mg'
+  #   daily_tolerance: 50
+  #   cost: 3
+
+  - name: "acide gras laurique, myristique et palmitique"
+    key: 'lipids_nocive'
+    max: 8   # RNP 2017
+    unit: 'g'
+    mode: 'percentage_energy'
+    aggreg: 'sum'
+    daily_tolerance: 50
+    cost: 3
+
+  - name: "acides gras saturés totaux"
+    key: 'lipids_saturated'
+    max: 14.4   # RNP 2017 + 20% : 12
+    unit: 'g'
+    mode: 'percentage_energy'
+    daily_tolerance: 50
+    cost: 3
+
+  - name: "acides gras monoinsaturés totaux"
+    key: 'lipids_monoinsaturated'  # En 2010, un ANC a été défini pour l’acide oléique, en remplacement de l’ancien ANC établi en 2001 pour les AGMI totaux. L’ANC en acide oléique a été fixé à 15-20 % de l’A
+    min: 12
+    max: 20
+    unit: 'g'
+    mode: 'percentage_energy'
+    daily_tolerance: 50
+    cost: 3
+
+  - name: "vitamine c"
+    key: 'vitamin_c'
+    min: 90   # BNM 2017
+    max: 1100
+    unit: 'mg'
+    daily_tolerance_min: 20
+    daily_tolerance_max: 'inf'
+    cost: 3
+
+  - name: "folacine totale"  # B9
+    key: 'vitamin_b9'
+    min: 250  # BNM 2017
+    max: 1000
+    unit: 'µg'
+    daily_tolerance: 'inf'
+    cost: 3
+
+  - name: "vitamine b12"
+    key: 'vitamin_b12'
+    min: 1.4 # pourrait être baissé à 1.4  (BNM - NCM 2014). AS 2017 = 4
+    unit: 'µg'
+    daily_tolerance: 'inf'
+    cost: 3
+
+
+  # Should be optional :
+  - name: "vitamine d (microgrammes)"
+    key: 'vitamin_d'
+    min: 5
+    max: 50
+    unit: 'µg'
+    daily_tolerance_min: two_weekly_inputs_min
+    daily_tolerance_max: 'inf'
+    cost: 3
+
+  # - name: "K1+K2"
+  #   key: 'vitamin_k'
+  #   min: 45
+  #   unit: 'µg'
+  #   cost: 3
+  #   daily_tolerance: 'inf'
+
+  - name: "calcium"
+    key: 'calcium'
+    min: 750 # BNM 2017 + 25 ans
+    max: 2500
+    unit: 'mg'
+    daily_tolerance: 'inf'
+    cost: 3
+
+  - name: "phosphore"
+    key: 'phosphorus'
+    min: 700  # AS 2017. Pourrait être baissé à 580 (BNM selon NHMRC 2006)
+    unit: 'mg'
+    daily_tolerance: 'inf'
+    cost: 3
+
+# Not available in CIQUAL:
+#     - name: "fluor"
+#       min: 2
+#       max: 2.6
+#       unit: 'mg'
+
+  - name: "iode"
+    key: 'iode'
+    min: 120
+    max: 600
+    unit: 'µg'
+    daily_tolerance: 'inf'
+    cost: 3
+
+
+
+  - name: "sélénium"
+    key: 'selenium'
+    min: 1   # Afssa 2001.   AS 2017 : 70.
+    mode: 'per_kg'
+    unit: 'µg'
+    daily_tolerance: 'inf'
+    cost: 3
+
+  - name: "béta carotène"
+    key: 'betacarotene'
+    min: 2000
+    mode: 'per_1000kcal'
+    unit: 'µg'
+    daily_tolerance: 50
+    cost: 3
+
+adult_man:
+
+  sex: 'male'
+  min_age: 20
+  max_age: 100  # Should be : max 75
+
+  nutrients:
+
+    - name: "cuivre"
+      key: 'copper'
+      min: 1 # BNM 2017
+      max: 5
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "magnésium"
+      key: 'magnesium'
+      min: 336  # 420 (AS) - 20%   .  Pourrait être diminué à 330 (BNM slon NHMRC 2006)
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "vitamine a"
+      key: 'vitamin_a'
+      min: 570 # BNM 2017
+      max: 3000
+      unit: 'µg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "thiamine" # B1
+      key: 'vitamin_b1'
+      min: 1.5  # AS 2017  -- pourrait être diminué à 1  (NHRMC 2006)
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+    - name: "riboflavine" # B2
+      key: 'vitamin_b2'
+      min: 1.44 # AS 2017 - 20%  BNM de 1.1 selon NHMRC
+      max: 17
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "niacine (acide nicotinique) préformée"  # Vitamine B3
+      key: 'vitamin_b3'
+      min: 14.4  # BNM 2017
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "acide pantothénique" # B5
+      key: 'vitamin_b5'
+      min: 5.8  # AS 2017
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "vitamine b6"
+      key: 'vitamin_b6'
+      min: 1.8  # AS 2017 - pourrait être baissé à 1.3 (NCM 2014)
+      max: 25
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+
+    - name: "vitamine e"
+      key: 'vitamin_e'
+      min: 10.5  # AS 2017 -- pourrait être diminuée à 6 (BNM selon NCM 2014)
+      max: 300
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+
+    - name: "fer"
+      key: 'iron'
+      min: 6 # BNM 2017
+      max: 28
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "zinc"
+      key: 'zinc'
+      min: 9.3  # BNM 2017
+      max: 25
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+
+
+adult_lady:
+
+  sex: 'female'
+  min_age: 20
+  max_age: 100  # Should be : max 75
+
+  nutrients: # Specific values for adult ladies
+
+    - name: "vitamine a"
+      key: 'vitamin_a'
+      min: 490 # BNM 2017
+      max: 3000
+      unit: 'µg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "thiamine" # B1
+      key: 'vitamin_b1'
+      min: 1.2  # AS 2017  -- pourrait être diminué à 0.9  (NHRMC 2006
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "riboflavine" # B2
+      key: 'vitamin_b2'
+      min: 1.2 # 1.5 (AS 2017) - 20%  . BNM de 0.9 selon NHMRC
+      max: 17
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "niacine (acide nicotinique) préformée"  # Vitamine B3
+      key: 'vitamin_b3'
+      min: 11.4  # BNM 2017
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "acide pantothénique" # B5
+      key: 'vitamin_b5'
+      min: 4.7  # AS 2017
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "vitamine b6"
+      key: 'vitamin_b6'
+      min: 1.5  # AS 2017 - pourrait être baissé à 1.1 (NCM 2014)
+      max: 25
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "vitamine e"
+      key: 'vitamin_e'
+      min: 9.9  # AS 2017  -- pourrait être diminuée à 5 (BNM selon NCM 2014)
+      max: 300
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "cuivre"
+      key: 'copper'
+      min: 0.8 # BNM 2017
+      max: 5
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "magnésium"
+      key: 'magnesium'
+      min: 288 # AS 2017 : 360 - 20%  .  Pourrait être diminué à 255 (BNM slon NHMRC 2006)
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+
+    - name: "fer"
+      key: 'iron'
+      min: 7  # BNM 2017
+      max: 28
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3
+
+    - name: "zinc"
+      key: 'zinc'
+      min: 7.6  # BNM 2017
+      max: 25
+      unit: 'mg'
+      daily_tolerance: 'inf'
+      cost: 3

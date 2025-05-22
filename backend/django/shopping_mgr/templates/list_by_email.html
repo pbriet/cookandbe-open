@@ -1,0 +1,104 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Vos courses de {{ start_date|date:"l j"|capfirst }}
+  {% if start_date != end_date %}
+    à  {{ end_date|date:"l j"|capfirst }}
+    {% endif %}
+{% endblock title %}
+
+{% block summary %}
+  Votre liste de courses par e-mail
+{% endblock summary %}
+
+{% block css %}
+  .even-row {
+    display: table;
+    width: 100%;
+    background-color: #ffffff;
+  }
+  .odd-row {
+    display: table;
+    width: 100%;
+    background-color: #f0f0f0;
+  }
+  .shopping-item-name {
+    text-align: left;
+    padding: 5px 10px;
+  }
+  .shopping-item-quantity {
+    color: #226622;
+    text-align: right;
+    padding: 5px 10px;
+  }
+{% endblock css %}
+
+{% block content %}
+  {% op_container %}
+    <h1>
+      Vos courses
+      {% if start_date != end_date %}
+        de {{ start_date|date:"l j"|capfirst }}
+        à  {{ end_date|date:"l j"|capfirst }}
+      {% endif %}
+      {% if start_date == end_date %}
+        du {{ start_date|date:"l j"|capfirst }}
+      {% endif %}
+    </h1>
+  {% op_container_end %}
+
+  {% for category in content %}                     {# iterating on categories #}
+    {% if category.missing_items > 0 %}             {# only categories with at least one item missing #}
+      {% op_container %}
+        <h2 style="width: 100%;">
+          {{ category.food_type }}
+        </h2>
+        {% for item in category.items %}            {# iterating on shopping items #}
+          {% if not item.got_it %}                  {# only missing items #}
+            <div class="{% cycle 'even-row' 'odd-row' as rowcolors %}">
+              {% op_column left 320px %}
+                <div class="shopping-item-name">
+                  {% if item.forced_name != None %}
+                    {{ item.forced_name }}
+                  {% else %}
+                    {{ item.food.name }}
+                  {% endif %}
+                </div>
+              {% op_column_end %}
+              {% op_column right 220px %}
+                <div class="shopping-item-quantity">
+                  {% if item.forced_quantity != None %}
+                    {{ item.forced_quantity.strip|safe }}
+                  {% else %}
+                    {{ item.conversion.html_value.strip|safe }}
+                    {% if item.food.name != item.conversion.unit %}
+                      {{ item.conversion.unit }}
+                    {% endif %}
+                    {% if item.basic_conversion.html_value %}
+                      <span style="color: #a0a0a0;">({{ item.basic_conversion.html_value.strip|safe }} {{ item.basic_conversion.unit }})</span>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              {% op_column_end %}
+            </div>
+          {% endif %} {# end iterating on shopping items #}
+        {% endfor %}
+      {% op_container_end %}
+    {% endif %}
+  {% endfor %} {# end iterating on categories #}
+{% endblock content %}
+
+{% block action1 %}
+  {% op_button /shopping_list/ %}
+    Voir ma liste en ligne
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block last_word %}
+  Retrouvez toutes les recettes sur votre compte <a href="{% cms_url '' %}" target="_blank">{% brand_name %}</a>
+{% endblock last_word %}
+

@@ -1,0 +1,17 @@
+
+# Only initialization. Stops directly
+nb_generations: 0
+max_lost_generations: 0
+
+# Number of plannings
+population_size: 1
+
+# The rest is not very useful...
+oriented_crossover_rate_start: 0
+oriented_crossover_rate_end: 1
+oriented_mutation_rate_start: 0
+oriented_mutation_rate_end: 1
+ratio_change_rate: 0.25
+crossover_rate: 0.7
+mutation_rate: 0.7
+selection: elitism

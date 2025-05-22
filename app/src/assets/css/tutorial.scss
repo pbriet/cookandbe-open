@@ -1,0 +1,54 @@
+.tutorial-step {
+  visibility: hidden;
+  background-color: white;
+  text-align: center;
+  padding: 6px 12px;
+  min-width: 220px;
+  position: absolute;
+  z-index: 1061; // Over bootstrap modals
+  border-radius: 6px;
+  border: solid 2px $op-color-green;
+  max-width: 300px;
+  color: $op-color-text-main;
+  img {
+     width: 40px;
+     margin-left: -20px;
+  }
+  .tutorial-step-text {
+    padding: 6px;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .tutorial-center {
+    margin: auto;
+    width: 30px;
+  }
+}
+
+.tutorial-pos-bottom {
+   margin-top: 10px;
+   padding-bottom: 10px;
+   .tutorial-pointer-top {
+      position: absolute;
+      margin-top: -22px;
+   }
+   .tutorial-pointer-bottom {
+     display: none;
+   }
+}
+
+.tutorial-pos-top {
+   padding-bottom: 15px;
+   .tutorial-pointer-top {
+     display: none;
+   }
+   .tutorial-pointer-bottom {
+      position: absolute;
+      margin-top: 3px;
+     transform: rotate(180deg);
+   }
+}
+
+#tutorial-empty-modal .modal-content {
+	border-width: 0;
+}

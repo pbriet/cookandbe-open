@@ -1,0 +1,96 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block css %}
+.recipe_block {
+    width: 100%;
+    text-align: center;
+}
+.recipe_block a {
+    text-decoration: none !important;
+}
+.recipe_block img {
+    width: 80%;
+    max-height: 250px;
+    max-width: 500px;
+}
+.recipe_block h2 {
+    text-align: center;
+    margin-bottom: 2px;
+}
+{% endblock css %}
+
+{% block summary %}
+  Idées repas pour le {{ date|date:'l j' }}
+{% endblock summary %}
+
+{% block title %}
+  Idées repas pour le {{ date|date:'l j' }}
+{% endblock title %}
+
+{% block noaction %}
+{% endblock noaction %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Idées du jour</h1>
+
+    <p>
+      En manque d'idées repas ?
+      {% if recipes|length > 1 %} En voici quelques unes !{% endif %}
+      {% if recipes|length == 1 %} En voici une !{% endif %}
+    </p>
+
+    {% for recipe in recipes %}
+      <div class="recipe_block">
+        <a href="{% cms_url '/recettes/recette' %}-{{ recipe.url_key }}"
+           mc:tags="suggest_recipe"
+           target="_blank">
+          <h2>{{ recipe.name }}</h2>
+          {% if recipe.photo %}
+              <img class="recipe-photo" src="{{ recipe.photo }}"></img>
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+    <br/>
+    {% op_main_action_button /day_planner/{{date|date:'Y-m-d'}} %}
+      Retrouvez
+      {% if recipes|length > 1 %} ces recettes {% endif %}
+      {% if recipes|length == 1 %} cette recette {% endif %}
+      dans un menu équilibré
+    {% op_button_end %}
+  {% op_container_end %}
+
+
+  {% op_container %}
+    <h2>Personnalisez davantage vos suggestions !</h2>
+    {% op_column left 50% %}
+      <p>Ces suggestions ne vous correspondent pas ? Mettez à jour votre profil pour les améliorer !</p>
+    {% op_column_end %}
+    {% op_column right 50% %}
+      {% op_container %}
+        {% op_button /config/ %}
+          Accéder à mon profil
+        {% op_button_end %}
+      {% op_container_end %}
+    {% op_column_end %}
+  {% op_container_end %}
+
+
+  {% op_container %}
+    <h2>Planifiez vos repas et gagnez du temps</h2>
+    {% op_column left 50% %}
+      <p>Des idées de menus équilibrés chaque jour et votre liste de courses en 1 clic.</p>
+      <p>Elle est pas belle la vie sur {% brand_name %} ?</p>
+    {% op_column_end %}
+    {% op_column right 50% %}
+      {% op_container %}
+        {% op_button /day_planner/{{date|date:'Y-m-d'}} %}
+          Planifier mes repas
+        {% op_button_end %}
+      {% op_container_end %}
+    {% op_column_end %}
+  {% op_container_end %}
+
+{% endblock content %}

@@ -1,0 +1,286 @@
+// External
+
+$twitter_content_width: 588px;
+$twitter_panel_width: 288px;
+
+// Multi columns page layout
+
+$op-page-column-width-lg: 978px;
+$op-page-column-width-md: 650px;
+$op-page-column-width-sm: 500px;
+$op-page-column-width-xs: 250px;
+
+// Unique column page layout
+
+$op-page-padding-top-xs: 40px;
+$op-page-padding-top-sm: 75px;
+$op-page-content-spacing: 15px;
+$op-page-content-border-width: 1px;
+$op-page-content-padding: 15px;
+
+// Recipe images
+
+$op-recipe-border-width: 1px;
+
+$op-recipe-img-width-xl: 1024px;
+$op-recipe-img-height-xl: 640px;
+
+$op-recipe-img-width-lg: 640px;
+$op-recipe-img-height-lg: 400px;
+
+$op-recipe-img-width-md: 512px;
+$op-recipe-img-height-md: 320px;
+
+$op-recipe-img-width-sm: 320px;
+$op-recipe-img-height-sm: 200px;
+
+$op-recipe-img-width-xs: 240px;
+$op-recipe-img-height-xs: 150px;
+
+$op-recipe-img-width-xxs: 160px;
+$op-recipe-img-height-xxs: 100px;
+
+.op-hs-0 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.op-hs-5 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.op-hs-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.op-hs-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.op-hs-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.op-hs {
+  @extend .op-hs-20;
+}
+
+.op-vs-0 {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+.op-vs-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.op-vs-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.op-vs-15 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.op-vs-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.op-vs {
+  @extend .op-vs-20;
+}
+
+.op-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  @extend .op-vs;
+}
+.op-row-5 {
+  @extend .op-row;
+  @extend .op-vs-5;
+}
+.op-row-10 {
+  @extend .op-row;
+  @extend .op-vs-10;
+}
+.op-row-15 {
+  @extend .op-row;
+  @extend .op-vs-15;
+}
+.op-row-20 {
+  @extend .op-row;
+  @extend .op-vs-20;
+}
+
+.op-max-width-100 {
+  margin: auto;
+  max-width: 100px;
+}
+.op-max-width-200 {
+  margin: auto;
+  max-width: 200px;
+}
+.op-max-width-300 {
+  margin: auto;
+  max-width: 300px;
+}
+.op-max-width-400 {
+  margin: auto;
+  max-width: 400px;
+}
+.op-max-width-500 {
+  margin: auto;
+  max-width: 500px;
+}
+.op-max-width-xs {
+  margin: auto;
+  max-width: $bootstrap-xxs-max;
+}
+.op-max-width-sm {
+  margin: auto;
+  max-width: $bootstrap-xs-max;
+}
+.op-max-width-md {
+  margin: auto;
+  max-width: $bootstrap-sm-max;
+}
+
+// Banners
+
+$op-page-banner-height: 600px;
+$op-page-banner-homepage-height: 600px;
+$op-page-banner-gradient-height: 150px;
+
+// Radius
+
+$op-radius-infinity: 99999px;
+$op-radius-xs: 2px;
+$op-radius-sm: 3px;
+$op-radius-md: 4px;
+$op-radius-lg: 6px;
+$op-radius-xl: 10px;
+
+// Layout
+
+.op-column {
+  border: solid $op-page-content-border-width $op-color-border;
+  height: 100%;
+  min-height: 500px;
+  background-color: $op-color-body-background;
+  position: relative;
+
+  &:after {
+    @extend .clearfix;
+  }
+}
+
+.op-info {
+  padding: 15px;
+  width: 100%;
+  clear: both;
+  border: none;
+  margin-bottom: 15px;
+
+  .info-text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .info-icon {
+    vertical-align: middle;
+    font-size: $op-font-dxl;
+    display: inline-block;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  img {
+    @extend .op-icon-dlg;
+  }
+
+  @media (max-width: $bootstrap-xxs-max) {
+    .info-icon {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
+  }
+
+  @media (min-width: $bootstrap-xs-min) {
+    p {
+      margin-bottom: 5px;
+    }
+
+    .info-icon {
+      width: 30px;
+      margin-right: 15px;
+      margin-left: 5px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+  }
+
+  &:after {
+    @extend .clearfix;
+  }
+}
+
+.op-clickable {
+  &:hover {
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.op-clickable-link {
+  &:hover {
+    cursor: pointer;
+
+    div,
+    span,
+    p {
+      color: black;
+      text-decoration: underline;
+    }
+
+    .glyphicon,
+    img {
+      text-decoration: none;
+    }
+  }
+}
+
+.alert {
+  p {
+    text-align: justify;
+  }
+
+  .alert-icon {
+    @extend .op-icon-dlg;
+  }
+
+  @media (max-width: $bootstrap-xxs-max) {
+    .alert-icon {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (min-width: $bootstrap-xs-min) {
+    .alert-icon {
+      margin-right: 15px;
+      margin-left: 5px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      float: left;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+{% load op_mail_style %}
+
+{% block css %}
+  .reminder-recipe-img {
+    width: 200px;
+    max-height: 150px;
+  }
+  @media only screen and (max-width: 600px){
+    .reminder-recipe-img {
+      width: 100% !important;
+      max-height: 250px !important;
+    }
+  }
+  .reminder-recipe-instructions {
+    width: 100%;
+    margin-bottom: 15px;
+    text-decoration: underline;
+  }
+  .reminder-recipe-ingredients {
+    list-style: none;
+    padding-left: 15px;
+    margin: 0px;
+    margin-bottom: 15px;
+  }
+  .did_you_like {
+    margin-bottom: 20px;
+  }
+  @media only screen and (min-width: 600px){
+    .rate-btn {
+      margin-top: 40px;
+    }
+  }
+  .rate_it { text-decoration: underline; }
+  @media only screen and (max-width: 600px){
+    .reminder-recipe-ingredients {
+      padding-left: 0px !important;
+      width: 100% !important;
+    }
+  }
+{% endblock css %}
+
+{% block summary %}
+  Votre menu du {{ date|date:"l d F" }}
+{% endblock summary %}
+
+{% block title %}
+  Votre menu du {{ date|date:"l d F" }}
+{% endblock title %}
+
+{% block action1 %}
+  {% op_button /day/{{date|date:'Y-m-d'}} %}
+    Voir ma journée sur le site
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block action2 %}
+  {% op_button /calendar %}
+    Accéder à mon planning
+  {% op_button_end %}
+{% endblock action2 %}
+
+{% block content %}
+  {% op_container %}
+    <h1>{{ date|date:"l d F"|capfirst }}</h1>
+
+    <p>Vos menus personnalisés du jour !</p>
+
+    {% if did_you_like %}
+      <div class="did_you_like" >
+        <h2>Hier, avez-vous aimé ?</h2>
+        <h3>{{ did_you_like.name }}</h3>
+        {% op_column left 300px %}
+          <a href="{% cms_url '/recettes/recette' %}-{{ did_you_like.url_key }}/{{ recipe.ratio | stringformat:'0.1f'}}?scrollto=rate-action" target="_blank">
+              {% if did_you_like.photo %}
+              <div>
+                <img class="reminder-recipe-img" src="{{ did_you_like.photo }}"></img>
+              </div>
+              {% endif %}
+          </a>
+        {% op_column_end %}
+        {% op_column left 250px %}
+          <div class="rate-btn">
+            {% op_button /recettes/recette-{{did_you_like.url_key}}/{{recipe.ratio|stringformat:'0.1f'}}?scrollto=rate-action %}
+              Noter la recette
+            {% op_button_end %}
+          </div>
+        {% op_column_end %}
+        <table width="100%" style="height: 1px;"></table> <!-- Yes, that's a clearfix -->
+      </div>
+    {% endif %}
+
+    {% if is_family %}
+
+      <h3>Qui mange quoi ?</h3>
+
+      Rendez-vous sur la page <a href="{% app_url /config/family/ %}" target="_blank">Foyer</a> pour voir la répartition
+      des quantités par personne.
+    {% endif %}
+  {% op_container_end %}
+
+  {% for meal in meals %}
+    {% op_separator %}
+    {% op_container %}
+    {% if meal.status == 'away' %}
+      <h2>{{ meal.meal_slot.meal_type.name }} (à l'extérieur)</h2>
+    {% endif %}
+    {% if meal.status == 'suggested' or meal.status == 'static' %}
+      <h2>{{ meal.meal_slot.meal_type.name }}</h2>
+      <p>Pour {{ meal.meal_slot.eating|length }} personne(s)</p>
+      {% for dish in meal.dishes %}
+        {% for recipe in dish.recipes %}
+          <table width="100%" style="height: 45px;">
+            <tr><td><h3>{{ recipe.name }}</h3></td></tr>
+          </table> <!-- Yes, that's a clearfix -->
+          {% op_column left 200px %}
+            <a style="text-align: center;" href="{% app_url /day/{{date|date:'Y-m-d'}} %}" target="_blank">
+              {% if recipe.photo %}
+                <img class="reminder-recipe-img" src="{{ recipe.photo }}"></img>
+              {% else %}
+                <div height="5px;"></div>
+              {% endif %}
+              <div class="reminder-recipe-instructions">Voir les instructions</div>
+            </a>
+          {% op_column_end %}
+          {% op_column left 350px %}
+            <ul class="reminder-recipe-ingredients">
+              {% for ingredient in recipe.ingredients %}
+                <li>
+                  <b>{{ ingredient.name }}</b> - {{ ingredient.conversions.best.value }} {{ ingredient.conversions.best.unit }}
+                  {% if ingredient.raw_state_name != 'frais' %}
+                    [{{ ingredient.raw_state_name }}]
+                  {% endif %}
+                  {% if ingredient.conversions.basic.unit %}
+                    <span style="color: #999999;">({{ ingredient.conversions.basic.html_value }} {{ ingredient.conversions.basic.unit }})</span>
+                  {% endif %}
+                </li>
+              {% endfor %} <!-- recipe.ingredients -->
+            </ul>
+          {% op_column_end %}
+        {% endfor %} <!-- dish.recipes -->
+      {% endfor %} <!-- meal.dishes -->
+    {% endif %}
+    {% op_container_end %}
+  {% endfor %} <!-- meals -->
+  {% op_separator %}
+{% endblock content %}
+
+{% block last_word %}
+  <p>Bon appétit !</p>
+  <p style="text-align: right; padding-bottom: 15px;">{% brand_name %}</p>
+{% endblock last_word %}

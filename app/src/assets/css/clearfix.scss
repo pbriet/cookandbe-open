@@ -1,0 +1,24 @@
+.clearfix {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* for IE/Mac */
+.clearfix {
+  display: inline-block;
+}
+
+/* For IE only */
+.clearfix {
+  zoom: 1; /* triggers hasLayout */
+  display: block; /* resets display for IE/Win */
+}
+
+.clearfix-after {
+  &:after {
+    @extend .clearfix;
+  }
+}

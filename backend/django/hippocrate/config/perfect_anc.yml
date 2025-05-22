@@ -1,0 +1,188 @@
+
+adult_man:
+
+  sex: 'male'
+  min_age: 20
+  max_age: 75
+
+  nutrients:
+    - name: "énergie (kilocalories)"
+      min: 2500
+      max: 2700 # Medium activity...  should be calculated from profile
+      unit: 'kcal'
+      
+    - name: "lipides totaux"
+      min: 35
+      max: 40
+      unit: 'g'
+      mode: 'percentage_energy'
+
+#     - name: "acides gras polyinsaturés, 18:2 c,c n-6, linoléique, octadécadiénoïque"  # Omega 6
+#       min: 4
+#       unit: 'g'
+#       mode: 'percentage_energy'
+
+    - name: "acides gras polyinsaturés, 18:3 c,c,c  n-3, linolénique, octadécatriénoïque"  # ALA (Omega 3)
+      min: 1
+      unit: 'g'
+      mode: 'percentage_energy'
+
+    - name: "acides gras polyinsaturés,  22:6 n-3, docosahexaénoïque"   # DHA (Omega 3)
+      min: 0.25
+      unit: 'g'
+
+    - name: "EPA+DHA"   # EPA + DHA (Omega 3)
+      min: 0.5
+      unit: 'g'
+
+    - name: "fibres alimentaires totales"
+      min: 25
+      max: 30
+      unit: 'g'
+
+    - name: "sodium"
+      max: 3200   #  1g de sel = 400 mg de sodium + 600 mg de chlorure.  Recommandation ANC  6-8g  (mais plafond)
+                  # L'équivalent approximatif est donc d'environ 3.2g de sodium par jour
+      unit: 'mg'
+
+    - name: "potassium"
+      min: 3000
+      max: 6000
+      unit: 'mg'
+      
+    - name: "acide gras laurique, myristique et palmitique"
+      max: 8
+      unit: 'g'
+      mode: 'percentage_energy'
+      aggreg: 'sum'
+
+    - name: "acides gras saturés totaux"
+      max: 12
+      unit: 'g'
+      mode: 'percentage_energy'
+
+#     - name: "acides gras monoinsaturés, 18:1c, octadécénoïque"  # acide oléique
+#       min: 15
+#       max: 20
+#       unit: 'g'
+#       mode: 'percentage_energy'
+
+    - name: "glucides totaux (par différence)"
+      min: 50
+      max: 55
+      unit: 'g'
+      mode: 'percentage_energy'
+
+    - name: "protéines"
+      min: 0.8
+      unit: 'g'
+      mode: 'per_kg'
+
+    - name: "protéines"
+      min: 11
+      max: 15
+      unit: 'g'
+      mode: 'percentage_energy'
+      
+    - name: "vitamine c"
+      min: 110
+      max: 1100
+      unit: 'mg'
+
+    - name: "thiamine" # B1
+      min: 1.3
+      max: 15
+      unit: 'mg'
+
+    - name: "riboflavine" # B2
+      min: 1.6
+      max: 17
+      unit: 'mg'
+
+    - name: "acide pantothénique" # B5
+      min: 5
+      unit: 'mg'
+
+    - name: "vitamine b-6"
+      min: 1.5
+      max: 7
+      unit: 'mg'
+
+    - name: "vitamine b-12"
+      min: 2.4
+      unit: 'µg'
+
+    - name: "folacine totale"  # B9
+      min: 330
+      max: 900
+      unit: 'µg'
+      
+    - name: "vitamine a"
+      min: 800
+      max: 1400
+      unit: 'µg'
+
+    - name: "niacine (acide nicotinique) préformée"  # Vitamine B3
+      min: 14
+      max: 45
+      unit: 'mg'
+
+    - name: "vitamine e"
+      min: 12
+      max: 52
+      unit: 'mg'
+
+    - name: "vitamine d (microgrammes)"
+      min: 5
+      max: 25
+      unit: 'µg'
+# Not available in CIQUAL:
+# 
+#     - name: "vitamine k"
+#       min: 45
+#       unit: 'µg'
+
+    - name: "calcium"
+      min: 900
+      unit: 'mg'
+
+    - name: "phosphore"
+      min: 750
+      unit: 'mg'
+
+    - name: "magnésium"
+      min: 420
+      max: 700
+      unit: 'mg'
+
+    - name: "fer"
+      min: 9
+      max: 28
+      unit: 'mg'
+
+#     - name: "zinc"
+#       min: 12
+#       max: 50
+#       unit: 'mg'
+
+    - name: "cuivre"
+      min: 1.5
+      unit: 'mg'
+      
+# Not available in CIQUAL:
+#     - name: "fluor"
+#       min: 2
+#       max: 2.6
+#       unit: 'mg'
+
+    - name: "iode"
+      min: 2.5
+      max: 500
+      unit: 'µg'
+# 
+#     - name: "sélénium"
+#       min: 60
+#       max: 150
+#       unit: 'µg'
+
+

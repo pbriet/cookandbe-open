@@ -1,0 +1,45 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Votre commentaire nécessite des modifications
+{% endblock title %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Désolé, nous n'avons pas pu valider votre commentaire.</h1>
+    <p>
+      Vous avez laissé le commentaire suivant sur la recette <b>{{ recipe.name }}</b>:
+    </p>
+    <p><i style="white-space: pre">
+      {{ comment }}
+      </i>
+    </p><br/>
+    <p>
+      Les éléments suivants nécessitent une modification:
+    </p>
+    <p><i style="white-space: pre">
+      {{ reason }}
+      </i>
+    </p><br/>
+    <p>
+      Merci de laisser un nouveau commentaire sur la page recette
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block last_word %}
+  Nous vous remercions pour votre compréhension.
+{% endblock %}
+
+{% block social %}
+{% endblock social %}
+
+{% block action1 %}
+  {% op_button /recettes/recette-{{recipe.url_key}} %}
+    Voir la recette
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}

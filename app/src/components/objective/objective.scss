@@ -1,0 +1,211 @@
+$op-diet-btn-width: 350px;
+$op-diet-btn-height: 225px;
+$op-diet-btn-height-xs: 150px;
+
+.op-diet-card {
+    $MARGIN: 10px;
+
+    position: relative;
+    margin: $MARGIN;
+    text-align: center;
+    padding: 0px;
+    border: 1px solid $op-color-border;
+    border-radius: 0px 0px 10px 10px;
+    white-space: normal !important;
+
+    @media (max-width: $bootstrap-xs-max) {
+        width: 95%;
+        height: $op-diet-btn-height-xs;
+    }
+
+    @media (min-width: $bootstrap-sm-min) {
+        width: $op-diet-btn-width;
+        height: $op-diet-btn-height;
+    }
+
+    .op-diet-img {
+        overflow: hidden;
+        position: relative;
+        border-radius: 0px 0px 10px 10px;
+
+        @media (max-width: $bootstrap-xs-max) { width: 100%; height: 100%; }
+        @media (min-width: $bootstrap-sm-min) { width: 100%; height: 100%; }
+
+        img { width: 100% }
+    }
+
+    .op-diet-title {
+        background-color: $op-color-lime;
+        color: white;
+        bottom: 0;
+        margin: 0px;
+        padding: 15px 0px;
+        border-radius: 0px 0px 10px 10px;
+        width: 100%;
+        position: absolute;
+    }
+
+    .icon-trophy {
+        @media (min-width: $bootstrap-sm-min) {
+            margin-top: 40px;
+        }
+        @media (max-width: $bootstrap-xs-max) {
+            font-size: $op-font-dxxl;
+        }
+    }
+
+    .premium-trophy {
+        color: $op-color-subscription-premium;
+    }
+
+    .free-trophy {
+        color: $op-color-text-soft;
+    }
+
+    &>img {
+        display: block;
+        @media (max-width: $bootstrap-xs-max) { max-width: 100%; }
+    }
+
+}
+
+.op-diet-advantages {
+    font-size: $op-font-md;
+}
+
+.op-diet-btn {
+    @extend .op-diet-card;
+
+    &:hover {
+        cursor: pointer;
+        border-color: $op-color-green;
+
+        .op-diet-title {
+            background-color: white;
+            color: $op-color-green;
+        }
+    }
+
+    @media (max-width: $bootstrap-xs-max) {
+        width: 95%;
+        height: initial;
+    }
+
+    .op-diet-title {
+        @media (max-width: $bootstrap-xs-max) {
+            position: relative;
+            font-size: 18px;
+        }
+
+        @media (min-width: $bootstrap-sm-min) {
+            position: absolute;
+        }
+    }
+
+    .op-diet-img {
+        overflow: hidden;
+        position: relative;
+        border-radius: 0px 0px 10px 10px;
+
+        @media (max-width: $bootstrap-xs-max) { display: none; }
+        @media (min-width: $bootstrap-sm-min) { width: 100%; height: 100%; }
+
+        img { width: 100% }
+    }
+
+}
+
+.op-diet-page {
+    h1 {
+        font-size: 30px !important;
+    }
+    i {
+        color: $op-color-alert-ok;
+        font-style: normal;
+    }
+    h2 {
+        font-size: 24px !important;
+    }
+    p, li {
+        font-size: 14px;
+        text-align: justify;
+    }
+    .text-center p {
+        text-align: center;
+    }
+    #afdiag {
+        @media (min-width: $bootstrap-sm-min) {
+            img { height: 300px; }
+        }
+        @media (max-width: $bootstrap-xs-max) {
+            img { height: 150px; }
+        }
+        background-color: $op-color-grey-light;
+        color: inherit;
+        border-color: $op-color-green;
+        border-width: 2px;
+        margin-top: 20px;
+        padding-top: 0px;
+        td {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+    }
+}
+
+.op-diet-landing {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  background-color: lighten($op-color-lime, 40%);
+  border-radius: 20px;
+
+  @media (min-width: $op-page-column-width-lg) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media (max-width: $op-page-column-width-lg) {
+    text-align: center;
+    h2 {
+      display: block;
+      margin-bottom: 25px;
+    }
+    ul { padding-left: 15px; }
+  }
+
+  padding: 1px 20px;
+  b {
+    color: darken($op-color-logo-orange, 15%);
+    font-weight: normal;
+  }
+
+  .op-diet-landing-text  {
+    position: relative;
+    li, p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    p {
+      margin-top: 40px;
+    }
+    display: table-cell;
+    vertical-align: middle;
+
+    @media (max-width: $op-page-column-width-lg) {
+      width: 100%;
+    }
+  }
+  .op-diet-landing-img  {
+    width: 40%;
+    padding-bottom: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    @media (max-width: $op-page-column-width-lg) {
+        display: none;
+        height: 0px;
+        width: 0px;
+        padding: 0px;
+        margin: 0px;
+    }
+  }
+
+}

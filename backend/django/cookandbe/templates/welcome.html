@@ -1,0 +1,52 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Bienvenue sur Cook and Be !
+{% endblock title %}
+
+{% block content %}
+  {% op_container %}
+    <h1>{{ nickname }}, bienvenue sur Cook&amp;Be</h1>
+    <p>
+      Félicitations, vous avez créé avec succès votre profil utilisateur.
+    </p>
+
+    <h2>Nous répondons à vos questions</h2>
+    <p>
+      Votre avis est précieux. N'hésitez pas à nous laisser un message.
+    </p>
+    <p>
+      Nous ferons tout notre possible pour vous répondre au plus vite.
+    </p>
+
+    <h2>Créez vos propres recettes</h2>
+    <p>
+      Sur Cook&amp;Be, vous pouvez utiliser vos propres recettes.  Vous avez une recette de gratin inimitable ? Rendez-vous dans la section
+      "Recettes" et renseignez-la. Vous pourrez ensuite la placer dans vos menus.
+    </p>
+
+    <h2>Pour votre santé, contactez un médecin</h2>
+    <p>
+      En suivant nos recommandations, vous acceptez sans réserve la totalité de nos <a href="{% cms_url '/legal/conditions' %}" target="_blank">conditions générales</a> .<br/>
+      Nous tenons à souligner que Cook&amp;Be a une vocation purement informative, et que nos recommandations ne se substituent en aucun cas à l'avis du corps médical.
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block action1 %}
+  {% op_button /contact/ %}
+    Nous contacter
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}
+
+{% block personal_infos %}
+{% endblock personal_infos %}
+
+{% block last_word %}
+  Nous vous souhaitons une bonne expérience santé culinaire sur Cook&amp;Be !
+{% endblock %}
+

@@ -1,0 +1,36 @@
+﻿{% extends "common/templates/email.html" %}
+{% load op_mail_style %}
+
+{% block title %}
+  Votre recette a été publiée
+{% endblock title %}
+
+{% block content %}
+  {% op_container %}
+    <h1>Félicitations, votre recette est désormais accessible au public !</h1>
+
+    <a class="recipe_block" href="{% cms_url '/recettes/recette' %}-{{ recipe.url_key }}" target="_blank">
+      {{ recipe.name }}<br/>
+      {% if recipe.photo %}
+          <img class="recipe-photo" src="{{ recipe.photo_url }}"></img>
+      {% endif %}
+    </a>
+    <p>
+      Désormais, votre recette est visible par tous sur {% brand_name %}. Elle apparaitra dans les plannings des utilisateurs et
+      est susceptible d'être notée.
+    </p>
+  {% op_container_end %}
+{% endblock content %}
+
+{% block last_word %}
+  Nous espérons que votre recette aura du succès auprès des internautes !
+{% endblock %}
+
+{% block action1 %}
+  {% op_button /recettes/recette-{{recipe.url_key}} %}
+    Voir la recette
+  {% op_button_end %}
+{% endblock action1 %}
+
+{% block noaction2 %}
+{% endblock noaction2 %}

@@ -1,0 +1,11 @@
+.menu-elt .badge {
+    padding-top: 3px !important;
+    padding-right: 5px !important;
+    padding-bottom: 3px !important;
+    padding-left: 5px !important;
+    color: $op-color-notification-text;
+    background-color: $op-color-notification-bg;
+    z-index: 10;
+    position: relative;
+	font-size: 12px !important;
+}

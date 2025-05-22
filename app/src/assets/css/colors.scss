@@ -1,0 +1,70 @@
+// Graphics
+$op-color-green: #009144;
+$op-color-green-light: #ddffc6;
+$op-color-green-dark: #517620;
+$op-color-lime: #7ab231; /* rgb(122, 178, 49) */
+$op-color-yellow: #f4c741;
+$op-color-yellow-logo: #ece427;
+$op-color-orange: #d5a01d;
+$op-color-red: #b3454b;
+$op-color-grey-light: #f7f7f7;
+$op-color-grey-dark: #a0a0a0;
+$op-color-beige: #e8e5e0;
+$op-color-blue-dark: #2a6496;
+$op-color-beige-light: #f3f2ee;
+/* #EFEEE9; */
+$op-color-beige-dark: #e9e6dd;
+
+// Components
+$op-color-edit: #484ca0;
+$op-color-edit-bg: #f0f0f0;
+$op-color-anchor: darken($op-color-lime, 10%);
+$op-color-background: #e9e9e9;
+$op-color-margin: #f1eee9;
+$op-color-border: #cccccc;
+$op-color-button: #419641;
+$op-color-input-invalid: #ffdddd;
+
+// Menu
+$op-color-menu-btn: #777777;
+$op-color-menu-btn-hover: black;
+
+// Text
+$op-color-text-main: #484c55;
+$op-color-text-soft: #999999;
+$op-color-text-dark: #202020;
+
+// Alert
+$op-color-alert-warning: #f0ad4e;
+$op-color-alert-ok: $op-color-lime;
+$op-color-alert-ok-light: #eff8cc;
+$op-color-alert-danger: #d9534f;
+$op-color-alert-error: $op-color-alert-danger;
+
+// Notification
+$op-color-notification-bg: $op-color-orange;
+$op-color-notification-text: white;
+
+// Sex
+$op-color-male: #428bca;
+$op-color-female: #e56e94;
+
+// Subscription
+$op-color-subscription-premium: $op-color-lime;
+$op-color-subscription-free: darken($op-color-grey-light, 10%);
+
+// Interface
+$op-color-body-background: #fff;
+$op-color-homepage-background: #fff;
+$op-color-fade-default: rgba(255, 255, 255, 0.85);
+
+// Same as body because footer isn't at page bottom on small pages...
+$op-color-footer-background: $op-color-body-background;
+$op-color-footer-border: $op-color-beige;
+$op-color-footer-font: $op-color-text-soft;
+
+$op-color-logo-orange: #f59a23;
+
+// Table
+$op-color-table-row-odd: #fafafa;
+$op-color-table-row-even: #e8e8e8;

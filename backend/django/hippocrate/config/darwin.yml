@@ -1,0 +1,23 @@
+# Number of plannings
+population_size: 20
+
+# Number of loops in the algorithm
+nb_generations: 10000
+
+max_lost_generations: 100
+
+# Percentage (float) of oriented improvements
+# crossover / mutation
+oriented_crossover_rate_start: 0.5
+oriented_crossover_rate_end: 0.5
+oriented_mutation_rate_start: 0.5
+oriented_mutation_rate_end: 0.5
+
+# Percentage of oriented interval mutations that are modifying ratio
+ratio_change_rate: 0.25
+
+crossover_rate: 0.25
+mutation_rate: 0.5
+
+# Elitism or rankproportionate
+selection: elitism

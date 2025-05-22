@@ -1,0 +1,7 @@
+# This config is incomplete
+
+population_size: 20
+crossover_rate: 0.5
+mutation_rate: 0.5
+ratio_change_rate: 0.25
+
